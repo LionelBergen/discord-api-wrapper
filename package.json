@@ -1,0 +1,36 @@
+{
+  "name": "discord-api-wrapper",
+  "version": "1.0.0",
+  "description": "Discord.js api wrapper, easy to use create Discord bots",
+  "main": "src/discord_api_wrapper.js",
+  "scripts": {
+    "test": "mocha",
+    "eslint": "eslint --ignore-path .gitignore .",
+    "lint_auto_fix": "eslint --fix --ignore-path .gitignore ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LionelBergen/discord-api-wrapper.git"
+  },
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  },
+  "keywords": [
+    "discord",
+    "wrapper",
+    "bot",
+    "automation"
+  ],
+  "author": "Lionel Bergen",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-config-strongloop": "^2.1.0",
+    "mocha": "^8.2.1",
+    "sinon": "^9.2.2"
+  },
+  "bugs": {
+    "url": "https://github.com/LionelBergen/discord-api-wrapper/issues"
+  },
+  "homepage": "https://github.com/LionelBergen/discord-api-wrapper#readme"
+}
