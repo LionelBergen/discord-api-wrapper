@@ -70,7 +70,7 @@ class MockDiscordClientHandler {
   resetAllVariables() {
     this.loginCalls = 0;
     this.clientConstructorStub = sandbox.stub(Discord, 'Client');
-    this.discordMockClients = [];
+    this.discordMockClient = null;
   }
   
   /**
@@ -86,7 +86,7 @@ class MockDiscordClientHandler {
     // Mock out Discord.Client() method
     this.clientConstructorStub.callsFake(function() {
       const mockDiscordClient = new FakeDiscordClient(discordToken, clientTag, channelsList);
-      self.discordMockClients.push(mockDiscordClient);
+      self.discordMockClient = mockDiscordClient;
       return mockDiscordClient;
     });
   }
@@ -130,9 +130,8 @@ class MockDiscordClientHandler {
    *
    * @param clientTag - ClientTag of the DiscordClient
   */
-  wasLoginMethodCalled(clientTag) {
-    const discordMockClient = this.discordMockClients.find(e => e.user.tag === clientTag);
-    return discordMockClient.loginCalled;
+  wasLoginMethodCalled(client) {
+    return this.discordMockClient.loginCalled;
   }
   
   /**
