@@ -14,7 +14,7 @@ describe('Init Discord Client', () => {
     const fakeDiscordToken2 = '###########';
     MockDiscordClient.expectDiscordNewClientCall(fakeDiscordToken1);
     
-    const discordClient1 = new DiscordBot(fakeDiscordToken1);
+    const discordClient1 = new DiscordBot({discordToken: fakeDiscordToken1});
     await discordClient1.initialize();
 
     assert.ok(discordClient1);
@@ -26,7 +26,7 @@ describe('Init Discord Client', () => {
     MockDiscordClient.expectDiscordNewClientCallThatThrowsErrorOnLogin(fakeDiscordToken1);
     
     try {
-      new DiscordBot(fakeDiscordToken1);
+      new DiscordBot({discordToken: fakeDiscordToken1});
       await discordClient1.initialize();
       assert.fail("Did not throw an error");
     } catch(error) {

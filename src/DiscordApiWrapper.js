@@ -1,13 +1,16 @@
 const Discord = require('discord.js');
 
 class DiscordBot {
-  constructor(discordToken) {
+  constructor({discordToken, commandPrefix = '!'}) {
     this.discordToken = discordToken;
+    this.discordClient = null;
+    this.commandPrefix = commandPrefix;
   }
 
   initialize() {
     return new Promise((resolve, reject) => {
       const client = new Discord.Client();
+      this.discordClient = client;
 
       client.on('ready', () => {
         console.log(`Client ready, user.tag is: ${client.user.tag}`);
