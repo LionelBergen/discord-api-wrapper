@@ -61,6 +61,10 @@ class DiscordBot {
   addOnCommandFunction({commandName, commandFunction}) {
     this.commands.push({command: commandName, commandFunction: commandFunction});
   }
+
+  getAllCommands() {
+    return this.commands.map(e => e.command);
+  }
 }
 
 
