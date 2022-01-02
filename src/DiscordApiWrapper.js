@@ -54,8 +54,8 @@ class DiscordBot {
     });
   }
 
-  sendMessage(channelName, message) {
-    this.discordClient.channels.get(channelName).send(message);
+  sendMessage(channelId, message) {
+    this.discordClient.channels.get(channelId).send(message);
   }
 
   addOnCommandFunction({commandName, commandFunction}) {
